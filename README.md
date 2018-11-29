@@ -8,8 +8,8 @@
 |group_id|integer|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :group
-- belongs_to :user
+- has_many :groups
+- has_many :users
 
 
 ## usersテーブル
@@ -20,7 +20,7 @@
 |e-mail|string|null: false|
 
 ### Association
-- has_and_belongs_to_many :groups
+- has_many :groups
 - has_many :messages
 
 
@@ -46,5 +46,5 @@
 
 
 ### Association
-- has_and_belongs_to_many :users
+- has_many :users
 - has_many :messages
