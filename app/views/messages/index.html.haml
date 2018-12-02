@@ -6,12 +6,14 @@
       %h2.chat-side__user-name nana
       %ul.chat-side__user-lists
         %li.chat-side__list
-          %a.chat-side__new{href=""}
-            %i.fa.fa-pencil-square-o
-          }
+          .chat-side__new
+            =link_to messages_path do
+              =fa_icon("fa-pencil-square-o")
+
         %li.chat-side__list
-          %a.chat-side__edit{href=""}
-            %i.fa.fa-cog
+          .chat-side__edit
+            =link_to messages_path do
+              =fa_icon("fa-cog")
 
     .chat-side__groups
       .chat-side__groups-list
