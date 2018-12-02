@@ -1,0 +1,54 @@
+.wrapper
+  .notification
+    チャットグループが作成されました
+  .chat-side
+    .chat-side__user
+      %h2.chat-side__user-name nana
+      %ul.chat-side__user-lists
+        %li.chat-side__list
+          %a.chat-side__new(href="")
+            %i.fa.fa-pencil-square-o
+        %li.chat-side__list
+          %a.chat-side__edit(href="")
+            %i.fa.fa-cog
+
+    .chat-side__groups
+      .chat-side__groups-list
+        %a.chat-side__group(href="")
+          .chat-side__group-name テスト1
+          .chat-side__group-message aaaaaaa
+      .chat-side__groups-list
+        %a.chat-side__group(href="")
+          .chat-side__group-name テスト2
+          .chat-side__group-message bbbbbbbb
+
+  .chat-main
+    .chat-main__header
+      .chat-main__header-group-name テスト1
+      %a.chat-main__header-group-edit-btn(href="")edit
+      %h4.chat-main__header-menmbers Members: nana
+
+    .chat-main__body
+      %ul.chat-main__body-messages
+        %li.chat-main__body-messages-name nana
+        %li.chat-main__body-messages-time 2018/11/30 00:00:00
+        .chat-main__body-messages-context テストテスト
+      %ul.chat-main__body-messages
+        %li.chat-main__body-messages-name naomi
+        %li.chat-main__body-messages-time 2018/12/01 00:00:00
+        .chat-main__body-messages-context テストテストテスト
+
+    .chat-main__footer
+      %form.chat-main__footer-form(action="" method="")
+        .chat-main__footer-body
+          %input.chat-main__footer-message(placeholder="type a message" type:text)
+            %label.chat-main__footer-image(for="message_image")
+              %input.chat-main__footer-file(type="file" name="message[image]" id="message_image")
+              %i.fa.fa-image
+
+          %input.chat-main__footer-submit(type="submit" value="Send")
+
+
+
+
+
