@@ -7,21 +7,21 @@
       %ul.chat-side__user-lists
         %li.chat-side__list
           .chat-side__new
-            =link_to messages_path do
-              =fa_icon("pencil-square-o")
+            =link_to root_path do
+              =fa_icon "pencil-square-o"
         %li.chat-side__list
           .chat-side__edit
-            =link_to messages_path do
-              =fa_icon("cog")
+            =link_to root_path do
+              =fa_icon "cog"
     .chat-side__groups
       .chat-side__groups-list
         .chat-side__group
-          =link_to messages_path do
+          =link_to root_path do
             .chat-side__group-name テスト1
             .chat-side__group-message aaaaaaa
       .chat-side__groups-list
         .chat-side__group
-          =link_to messages_path do
+          =link_to root_path do
             .chat-side__group-name テスト2
             .chat-side__group-message bbbbbbbb
 
@@ -29,7 +29,7 @@
     .chat-main__header
       .chat-main__header-group-name テスト1
       .chat-main__header-group-edit-btn
-        =link_to 'edit', messages_path
+        =link_to 'edit', root_path
       .chat-main__header-members Members: nana
 
     .chat-main__body
@@ -48,7 +48,7 @@
           %input.chat-main__footer-message(placeholder="type a message" type:text)
             %label.chat-main__footer-image(for="message_image")
               %input.chat-main__footer-file(type="file" name="message[image]" id="message_image")
-                =fa_icon("image")
+                =fa_icon "image"
           %input.chat-main__footer-submit(type="submit" value="Send")
 
 
