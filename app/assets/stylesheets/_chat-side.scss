@@ -36,16 +36,16 @@
     }
     &__groups-list{
       padding: 20px 0 40px 0;
+      a:link {color:white; text-decoration:none }
     }
-    &__group{
-      color: $white;
-      text-decoration: none;
-    }
-
     &__group-name{
       font-size: 15px;
+      color: $white;
+
     }
     &__group-message{
       font-size: 11px;
+      color: $white;
     }
   }
+
