@@ -8,28 +8,30 @@
         %li.chat-side__list
           .chat-side__new
             =link_to messages_path do
-              =fa_icon("fa-pencil-square-o")
-
+              %i.fa.fa-pencil-square-o
         %li.chat-side__list
           .chat-side__edit
             =link_to messages_path do
-              =fa_icon("fa-cog")
+              %i.fa.fa-cog
 
     .chat-side__groups
       .chat-side__groups-list
-        %a.chat-side__group{href=""}
-          .chat-side__group-name テスト1
-          .chat-side__group-message aaaaaaa
+        .chat-side__group
+          =link_to messages_path do
+            .chat-side__group-name テスト1
+            .chat-side__group-message aaaaaaa
       .chat-side__groups-list
-        %a.chat-side__group{href=""}
-          .chat-side__group-name テスト2
-          .chat-side__group-message bbbbbbbb
+        .chat-side__group
+          =link_to messages_path do
+            .chat-side__group-name テスト2
+            .chat-side__group-message bbbbbbbb
 
   .chat-main
     .chat-main__header
       .chat-main__header-group-name テスト1
-      %a.chat-main__header-group-edit-btn{href=""}edit
-      %h4.chat-main__header-menmbers Members: nana
+      .chat-main__header-group-edit-btn
+        =link_to 'edit', messages_path
+      .chat-main__header-members Members: nana
 
     .chat-main__body
       %ul.chat-main__body-messages
@@ -47,10 +49,8 @@
           %input.chat-main__footer-message(placeholder="type a message" type:text)
             %label.chat-main__footer-image(for="message_image")
               %input.chat-main__footer-file(type="file" name="message[image]" id="message_image")
-              %i.fa.fa-image
-
+                %i.fa.fa-image
           %input.chat-main__footer-submit(type="submit" value="Send")
-
 
 
 
