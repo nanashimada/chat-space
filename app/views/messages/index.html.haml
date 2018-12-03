@@ -8,12 +8,11 @@
         %li.chat-side__list
           .chat-side__new
             =link_to messages_path do
-              %i.fa.fa-pencil-square-o
+              =fa_icon("pencil-square-o")
         %li.chat-side__list
           .chat-side__edit
             =link_to messages_path do
-              %i.fa.fa-cog
-
+              =fa_icon("cog")
     .chat-side__groups
       .chat-side__groups-list
         .chat-side__group
@@ -49,7 +48,7 @@
           %input.chat-main__footer-message(placeholder="type a message" type:text)
             %label.chat-main__footer-image(for="message_image")
               %input.chat-main__footer-file(type="file" name="message[image]" id="message_image")
-                %i.fa.fa-image
+                =fa_icon("image")
           %input.chat-main__footer-submit(type="submit" value="Send")
 
 
