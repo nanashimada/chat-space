@@ -6,13 +6,13 @@
       background-color: #253141;
       height:50px;
       padding: 20px;
-    }
-    &__user-name{
-      line-height: 50px;
-      font-size: 16px;
-      font-weight: bold;
-      color: $white;
-      display: inline-block;
+      &-name{
+        line-height: 50px;
+        font-size: 16px;
+        font-weight: bold;
+        color: $white;
+        display: inline-block;
+      }
     }
     &__user-lists{
       float: right;
