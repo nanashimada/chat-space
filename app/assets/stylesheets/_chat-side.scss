@@ -3,7 +3,7 @@
     height: 100vh;
     float: left;
     &__user{
-      background-color: #253141;
+      background-color: $deep-blue;
       height:50px;
       padding: 20px;
       &-name{
@@ -28,7 +28,7 @@
     }
 
     &__groups{
-      background-color: #2f3e51;
+      background-color: $light-deep-blue;
       width: 100%;
       height: calc(100vh - 50px);
       padding: 0 20px;
@@ -36,7 +36,7 @@
     }
     &__groups-list{
       padding: 20px 0 40px 0;
-      a:link {color:white; text-decoration:none }
+      a:link {color:$white; text-decoration:none }
     }
     &__group-name{
       font-size: 15px;
