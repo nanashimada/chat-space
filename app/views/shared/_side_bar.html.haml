@@ -5,7 +5,7 @@
     %ul.chat-side__user-lists
       %li.chat-side__list
         .chat-side__new
-          =link_to new_groups_path do
+          =link_to new_group_path do
             =fa_icon "pencil-square-o"
       %li.chat-side__list
         .chat-side__edit
@@ -15,7 +15,7 @@
     .chat-side__groups-list
       .chat-side__group
         - current_user.groups.each do |group|
-          = link_to groups_messages_path(group) do
+          = link_to group_messages_path(group) do
             .chat-side__group-name
               = group.name
             .chat-side__group-message
