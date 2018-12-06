@@ -1,0 +1,22 @@
+.chat-side
+  .chat-side__user
+    %h2.chat-side__user-names
+      = current_user.name
+    %ul.chat-side__user-lists
+      %li.chat-side__list
+        .chat-side__new
+          =link_to new_group_path do
+            =fa_icon "pencil-square-o"
+      %li.chat-side__list
+        .chat-side__edit
+          =link_to edit_user_path(current_user) do
+            =fa_icon "cog"
+  .chat-side__groups
+    .chat-side__groups-list
+      .chat-side__group
+        - current_user.groups.each do |group|
+          = link_to group_messages_path(group) do
+            .chat-side__group-name
+              = group.name
+            .chat-side__group-message
+              メッセージはまだありません。

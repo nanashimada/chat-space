@@ -6,7 +6,7 @@
       background-color: $deep-blue;
       height:50px;
       padding: 20px;
-      &-name{
+      &-names{
         line-height: 50px;
         font-size: 16px;
         font-weight: bold;
@@ -41,11 +41,13 @@
     &__group-name{
       font-size: 15px;
       color: $white;
+      margin-bottom: 5px;
 
     }
     &__group-message{
       font-size: 11px;
       color: $white;
+      margin-bottom: 20px;
     }
   }
 
