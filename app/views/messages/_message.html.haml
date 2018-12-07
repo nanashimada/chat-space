@@ -1,0 +1,9 @@
+%ul.chat-main__body-messages
+  %li.chat-main__body-messages-name 
+    = message.user.name
+  %li.chat-main__body-messages-time
+    =  message.created_at.strftime("%Y-%m-%d %H:%M:%S")
+.chat-main__body-messages-context
+  - if message.body.present?
+    = message.body
+  =image_tag message.image.url if message.image.present?

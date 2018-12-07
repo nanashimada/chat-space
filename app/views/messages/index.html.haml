@@ -1,30 +1,22 @@
 .wrapper
+  = render 'shared/side_bar'
   .chat-main
     .chat-main__header
-      .chat-main__header-group-name テスト1
+      .chat-main__header-group-name
+        = @group.name
       .chat-main__header-group-edit-btn
-        =link_to 'edit', root_path
-      .chat-main__header-members Members: nana
-
+        =link_to 'edit', edit_group_path(@group)
+      .chat-main__header-members 
+        = "Members: #{@group.users.map(&:name).join(" ")}"
     .chat-main__body
-      %ul.chat-main__body-messages
-        %li.chat-main__body-messages-name nana
-        %li.chat-main__body-messages-time 2018/11/30 00:00:00
-        .chat-main__body-messages-context テストテスト
-      %ul.chat-main__body-messages
-        %li.chat-main__body-messages-name naomi
-        %li.chat-main__body-messages-time 2018/12/01 00:00:00
-        .chat-main__body-messages-context テストテストテスト
+      = render partial: 'message', collection: @messages
 
-    .chat-main__footer
-      %form.chat-main__footer-form(action="" method="")
-        .chat-main__footer-body
-          %input.chat-main__footer-message(placeholder="type a message" type:text)
-            %label.chat-main__footer-image(for="message_image")
-              %input.chat-main__footer-file(type="file" name="message[image]" id="message_image")
-                =fa_icon "image"
-          %input.chat-main__footer-submit(type="submit" value="Send")
-
-
-
-
+  .footer
+    .footer__form
+      = form_for [@group, @message] do |f|
+        .footer__form-boby
+          = f.text_field :body, class: 'footer__form-body-message', placeholder: 'type a message'
+          = f.label :image, class: 'footer__form-body-image' do
+            = fa_icon 'image'
+            = f.file_field :image, class: 'footer__form-body-file'
+          = f.submit 'Send', class: 'footer__form-body-submit'
