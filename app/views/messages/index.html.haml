@@ -11,12 +11,12 @@
     .chat-main__body
       = render partial: 'message', collection: @messages
 
-  .footer
-    .footer__form
-      = form_for [@group, @message] do |f|
-        .footer__form-boby
-          = f.text_field :body, class: 'footer__form-body-message', placeholder: 'type a message'
-          = f.label :image, class: 'footer__form-body-image' do
-            = fa_icon 'image'
-            = f.file_field :image, class: 'footer__form-body-file'
-          = f.submit 'Send', class: 'footer__form-body-submit'
+    .chat-main__footer
+      .chat-main__footer-form
+        = form_for [@group, @message] do |f|
+          .chat-main__footer-body
+            = f.text_field :body, class: 'chat-main__footer-body-message', placeholder: 'type a message'
+            = f.label :image, class: 'chat-main__footer-body-image' do
+              = fa_icon 'image'
+              = f.file_field :image, class: 'chat-main__footer-body-file'
+            = f.submit 'Send', class: 'chat-main__footer-body-submit'

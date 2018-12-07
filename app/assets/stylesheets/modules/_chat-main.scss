@@ -34,6 +34,7 @@
     &__body{
       margin-left: 40px;
       height: calc(100vh - 140px);
+      overflow: scroll;
     }
     &__body-messages{
       list-style-type: none;
@@ -57,10 +58,11 @@
       color: #434A54;
     }
     &__footer{
-      height: 90px;
-      width: 100%;
-      background-color: $light-gray;
+    height: 90px;
+    width: 100%;
+    background-color: $light-gray;
     }
+
     &__footer-form{
       margin: 0 40px;
       position: relative;
@@ -69,7 +71,7 @@
       display: flex;
       position: relative;
     }
-    &__footer-message{
+    &__footer-body-message{
       margin: 20px 0;
       padding-left: 10px;
       height: 50px;
@@ -79,7 +81,7 @@
       border: none;
       position: relative;
     }
-    &__footer-image{
+    &__footer-body-image{
       height: 50px;
       width: 40px;
       margin:32px 130px 20px 0;
@@ -87,13 +89,13 @@
       top: 0;
       right: 0;
     }
-    &__footer-file{
+    &__footer-body-file{
       position: absolute;
       top: 15px;
       left: 15px;
       display: none;
     }
-    &__footer-submit{
+    &__footer-body-submit{
       background-color: $blue;
       height: 50px;
       width:100px;
