@@ -13,7 +13,7 @@
 
     .chat-main__footer
       .chat-main__footer-form
-        = form_for [@group, @message] do |f|
+        = form_for([@group, @message], html: { id: 'new_message' }) do |f|
           .chat-main__footer-body
             = f.text_field :body, class: 'chat-main__footer-body-message', placeholder: 'type a message'
             = f.label :image, class: 'chat-main__footer-body-image' do
