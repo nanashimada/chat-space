@@ -58,7 +58,7 @@ $(function(){
     			appendGroupUser(userId, userName);
     	})
     	$(document).on("click",".user-search-remove",function(){
-    		$("#chat-group-user-8").remove();
+    		$(this).parent().remove();
     	})
 	});
 });
