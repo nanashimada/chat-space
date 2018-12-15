@@ -34,7 +34,7 @@ $(function(){
       var html = buildHTML(data);
       $('.chat-main__body').append(html);
       $('.chat-main__footer-body-message').val('');
-      $('.chat-main__body').animate({'scrollTop': 20000},1);
+      $('.chat-main__body').animate({'scrollTop': $('.chat-main__body')[0].scrollHeight},1);
       $('.chat-main__footer-body-submit').attr('disabled', false);　
     })
     .fail(function(){
@@ -44,25 +44,29 @@ $(function(){
 
   var interval = setInterval(function(){
     if (window.location.href.match(/\/groups\/\d+\/messages/)){
-
+      if($('.chat-main__body-content')[0]){
+        var id = $('.chat-main__body-content:last').data('id');
+      }else{
+        var id = 0
+      }
       $.ajax({
         url: window.location.href,
         type: 'GET',
+        data: { 
+          message: { id: id}
+        },
         dataType: 'json'
       })
 
       .done(function(messages){
-        var id = $('.chat-main__body-content:last').data('id');
         var insertHTML = '';
-        messages.forEach(function(message){
-          if (message.id > id){
-            insertHTML += buildHTML(message);
-          }
+        $.each(messages, function(i, message){
+          insertHTML += buildHTML(message);
         })
         $('.chat-main__body').append(insertHTML);
-        $('.chat-main__body').animate({'scrollTop': 30000},1);
+        $('.chat-main__body').animate({'scrollTop': $('.chat-main__body')[0].scrollHeight},1);
       })
-      .fail(function(data) {
+      .fail(function(message) {
         alert('自動更新に失敗しました');
       })
     }
