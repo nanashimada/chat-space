@@ -44,11 +44,7 @@ $(function(){
 
   var interval = setInterval(function(){
     if (window.location.href.match(/\/groups\/\d+\/messages/)){
-      if($('.chat-main__body-content')[0]){
-        var id = $('.chat-main__body-content:last').data('id');
-      }else{
-        var id = 0
-      }
+       var id = $('.chat-main__body-content')[0] ? $('.chat-main__body-content:last').data('id') : 0;
       $.ajax({
         url: window.location.href,
         type: 'GET',
