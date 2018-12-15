@@ -1,17 +1,19 @@
 $(function(){
   function buildHTML(message){
     var addimage = message.image ? `<img src= "${message.image}">` : "";
-    var html = `<ul class="chat-main__body-messages">
-                  <li class="chat-main__body-messages-name">
-                    ${message.user_name}
-                  </li>
-                  <li class="chat-main__body-messages-time">
-                    ${message.created_at}
-                  </li>
-                </ul>
-                <div class= "chat-main__body-messages-context">
-                  ${message.body}
-                  ${addimage}
+    var html = `<div class= "chat-main__body-content" data-id="${message.id}" >
+                  <ul class="chat-main__body-messages">
+                    <li class="chat-main__body-messages-name">
+                      ${message.user_name}
+                    </li>
+                    <li class="chat-main__body-messages-time">
+                      ${message.created_at}
+                    </li>
+                  </ul>
+                  <div class= "chat-main__body-messages-context">
+                    ${message.body}
+                    ${addimage}
+                  </div>
                 </div>`
     return html;
   }
@@ -32,11 +34,40 @@ $(function(){
       var html = buildHTML(data);
       $('.chat-main__body').append(html);
       $('.chat-main__footer-body-message').val('');
-      $('.chat-main__body').animate({'scrollTop': 13000},1);
+      $('.chat-main__body').animate({'scrollTop': 20000},1);
       $('.chat-main__footer-body-submit').attr('disabled', false);　
     })
     .fail(function(){
       alert('error');
     })
   })
+
+  var interval = setInterval(function(){
+    if (window.location.href.match(/\/groups\/\d+\/messages/)){
+
+      $.ajax({
+        url: window.location.href,
+        type: 'GET',
+        dataType: 'json'
+      })
+
+      .done(function(messages){
+        var id = $('.chat-main__body-content:last').data('id');
+        var insertHTML = '';
+        messages.forEach(function(message){
+          if (message.id > id){
+            insertHTML += buildHTML(message);
+          }
+        })
+        $('.chat-main__body').append(insertHTML);
+        $('.chat-main__body').animate({'scrollTop': 30000},1);
+      })
+      .fail(function(data) {
+        alert('自動更新に失敗しました');
+      })
+    }
+    else{
+      clearInterval(interval);
+    }
+  },5000);
 });
