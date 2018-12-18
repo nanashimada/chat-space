@@ -6,7 +6,7 @@ $(function(){
 	function appendUser(user) {
 		var html = `<div class="chat-group-user clearfix" id="chat-member">
   						<p class="chat-group-user__name">${user.name}</p>
-  						<a class="user-search-add chat-group-user__btn chat-group-user__btn--add" data-user-id=${user.id} data-user-name=${user.name}>追加</a>
+  						<a class="user-search-add chat-group-user__btn chat-group-user__btn--add" data-user-id="${user.id}" data-user-name="${user.name}">追加</a>
 					</div>`
 		userList.append(html);
 	}
@@ -28,7 +28,6 @@ $(function(){
 
   	$("#user-search-field").on("keyup",function() {
     	var input = $("#user-search-field").val();
-
     	$.ajax({
       		type: "GET",
       		url: '/users',
@@ -37,9 +36,9 @@ $(function(){
     	})
 
    		.done(function(users) {
-   		userList.empty();
-     		if (users.length !==0) {
-     			users.forEach(function(user){
+        userList.empty();
+     		if (users.length !== 0) {
+          users.forEach(function(user){
       				appendUser(user);
       			})
     		}
@@ -49,18 +48,18 @@ $(function(){
    		})
     	.fail(function(){
       		alert('error');
-    	})
+    	});
+    });
 
-    	$(document).on("click",".user-search-add",function(){
-    		$(this).parent().remove();
-    		var userId = $(this).attr("data-user-id");
-    		var userName = $(this).attr("data-user-name");
-    			appendGroupUser(userId, userName);
-    	})
-    	$(document).on("click",".user-search-remove",function(){
-    		$(this).parent().remove();
-    	})
-	});
+    $(document).on("click",".user-search-add",function(){
+      $(this).parent().remove();
+    	var userId = $(this).attr("data-user-id");
+    	var userName = $(this).attr("data-user-name");
+    		appendGroupUser(userId, userName);
+    })
+    $(document).on("click",".user-search-remove",function(){
+    	$(this).parent().remove();
+    })
 });
 
 
