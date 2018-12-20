@@ -49,7 +49,7 @@ $(function(){
         url: window.location.href,
         type: 'GET',
         data: { 
-          message: { id: id}
+          message: { id: id, group_id = group_id}
         },
         dataType: 'json'
       })
